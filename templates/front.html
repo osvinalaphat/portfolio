@@ -5,117 +5,165 @@
     </head>
 
     <body>
-        <h1 id="user">Portfolio Title</h1>
-        <p id="biog" style="white-space: pre-wrap;"></p>
-
-        <!-- Change text options-->
-        <div id="write" class="pops">
-            <button id="nameCloser" onclick="nameCloser()">X</button>
-            <div id="writeheadbar">Drag Menu</div>
-            <br>
-            <div id="form1">
-                <label id="nameLabel">Type your name:</label>
+        <div id="signlogin">
+            <div id="signinBox">
+                <label><b>Sign Up</b></label>
                 <br>
-                <input type="text" id="nameText" placeholder="Name Here" /><br>
-                <button id="nameSub">Submit</button>
+                <label>Username</label>
+                <input id="signup-email">
+                <label>Password</label>
+                <input id="signup-password">
+                <button onclick="signup()">SIGN UP</button>
             </div>
-            <br>
-            <br>
-
-            <div id="form2">
-                <label id="biogLabel">Type your Biography:</label> <br>
-                <textarea id="bio" placeholder="Biography Here" rows="8" cols="20"></textarea><br>
-                <button id="biogSub">Change Biography</button>
+            <div id="loginBox">
+                <label><b>Login</b></label>
+                <br>
+                <label>Username:</label>
+                <input id="login-email">
+                <label>Password:</label>
+                <input id="login-password">
+                <button onclick="login()">LOGIN</button>
             </div>
-
-
         </div>
+        <div id="portfolio" style="display:none;">
+            <h1 id="user">Portfolio Title</h1>
+            <p id="biog" style="white-space: pre-wrap;"></p>
 
-        <!--Color settings-->
-        <div id="colors" class="pops">
-
-            <div id="colorsheadbar">Drag Menu</div>
-            <button id="colorCloser" onclick="colorCloser()">X</button>
-
-            <div id="changeNameColor">
-                <label>Title color</label>
-                <select id="nameColorDrop" onchange="changeNameColor(value)">
-                    <option></option>
-                    <option value="#dd5555">Red</option>
-                    <option value="#dd7733">Orange</option>
-                    <option value="#ffee45">Yellow</option>
-                    <option value="#aaeeaa">Green</option>
-                    <option value="#5555dd">Blue</option>
-                    <option value="#aa22dd">Purple</option>
-                </select>
-            </div>
-
-                <div id="bgColor">
+            
+            <!-- Change text options-->
+            <div id="write" class="pops">
+                <button id="nameCloser" onclick="nameCloser()">X</button>
+                <div id="writeheadbar">Drag Menu</div>
+                <br>
+                <div id="writeBody" style="overflow-y:scroll;">
+                    <div id="nameMain">
+                        <label id="nameLabel">Type your name:</label>
+                        <br>
+                        <input type="text" id="nameText" placeholder="Name Here" /><br>
+                        <button id="nameSub">Submit</button>
+                    </div>
                     <br>
-                    <label>Background color</label>
-                    <select id="colorDrop" onchange="changeColor(value)">
-                        <option></option>
-                        <option value="#dd5555">Red</option>
-                        <option value="#dd7733">Orange</option>
-                        <option value="#ffee45">Yellow</option>
-                        <option value="#aaeeaa">Green</option>
-                        <option value="#5555dd">Blue</option>
-                        <option value="#aa22dd">Purple</option>
-                    </select>
                     <br>
+
+                    <div id="biogMain">
+                        <label id="biogLabel">Type your Biography:</label> <br>
+                        <textarea id="bio" placeholder="Biography Here" rows="8" cols="20"></textarea><br>
+                        <button id="biogSub">Change Biography</button>
+                    </div>
                 </div>
 
-                <div id="biogColor">
-                    <br>
-                    <label>Biography color</label>
-                    <select id="biogColorDtop" onchange="changeBiogColor(value)">
-                        <option></option>
-                        <option value="#dd5555">Red</option>
-                        <option value="#dd7733">Orange</option>
-                        <option value="#ffee45">Yellow</option>
-                        <option value="#aaeeaa">Green</option>
-                        <option value="#5555dd">Blue</option>
-                        <option value="#aa22dd">Purple</option>
-                    </select>
-                    <br>
+
+            </div>
+
+            <!--Color settings-->
+            <div id="colors" class="pops">
+
+                <div id="colorsheadbar">Drag Menu</div>
+                <button id="colorCloser" onclick="colorCloser()">X</button>
+                <div id="colorBody" style="overflow-y: scroll;">
+                    <div id="changeNameColor">
+                        <label>Title color</label>
+                        <select id="nameColorDrop" onchange="changeNameColor(value)">
+                            <option></option>
+                            <option value="#dd5555">Red</option>
+                            <option value="#dd7733">Orange</option>
+                            <option value="#ffee45">Yellow</option>
+                            <option value="#aaeeaa">Green</option>
+                            <option value="#5555dd">Blue</option>
+                            <option value="#aa22dd">Purple</option>
+                        </select>
+                    </div>
+
+                    <div id="bgColor">
+                        <br>
+                        <label>Background color</label>
+                        <select id="colorDrop" onchange="changeColor(value)">
+                            <option></option>
+                            <option value="#dd5555">Red</option>
+                            <option value="#dd7733">Orange</option>
+                            <option value="#ffee45">Yellow</option>
+                            <option value="#aaeeaa">Green</option>
+                            <option value="#5555dd">Blue</option>
+                            <option value="#aa22dd">Purple</option>
+                        </select>
+                        <br>
+                        </div>
+
+                    <div id="biogColor">
+                        <br>
+                        <label>Biography color</label>
+                        <select id="biogColorDrop" onchange="changeBiogColor(value)">
+                            <option></option>
+                            <option value="#dd5555">Red</option>
+                            <option value="#dd7733">Orange</option>
+                            <option value="#ffee45">Yellow</option>
+                            <option value="#aaeeaa">Green</option>
+                            <option value="#5555dd">Blue</option>
+                            <option value="#aa22dd">Purple</option>
+                        </select>
+                        <br>
+                    </div>
                 </div>
-        </div>
-
-        <!--Change margins-->
-        <div id="margin"class="pops">
-            <button id="marginCloser" onclick="marginCloser()">X</button>
-            <div id="marginheadbar">Drag Menu</div>
-            <div>
-                <button id="titleRight" value="up" onclick="moveName(value)">/\</button>
-                <button id="titleLeft" value="left" onclick="moveName(value)"><</button>
-                <p>Move Title</p>
-                <button id="titleUp" value="right" onclick="moveName(value)">></button>
-                <button id="titleDown" value="bottom" onclick="moveName(value)">\/</button>
             </div>
-            <div>
-                <div>
-                    <button id="biogRight" value="up" onclick="moveBiog(value)">/\</button>
-                    <button id="biogLeft" value="left" onclick="moveBiog(value)"><</button>
-                    <p>Move Biography</p>
-                    <button id="biogUp" value="right" onclick="moveBiog(value)">></button>
-                    <button id="biogDown" value="bottom" onclick="moveBiog(value)">\/</button>
+
+            <!--Change margins-->
+            <div id="margin"class="pops">
+                <button id="marginCloser" onclick="marginCloser()">X</button>
+                <div id="marginheadbar">Drag Menu</div>
+
+                <div id="marginBody" style="overflow-y: scroll;">
+                    <div>
+                        <button id="titleLeft" value="left" onclick="moveName(value)"><</button>
+                        <button id="titleRight" value="right" onclick="moveName(value)">></button>
+                        <p>Move Title</p>
+                        <button id="titleUp" value="up" onclick="moveName(value)">/\</button>
+                        <button id="titleDown" value="bottom" onclick="moveName(value)">\/</button>
+                    </div>
+                    <br><hr style="border-color: #465846;"><br>
+                    <div>
+                        <div>
+                            <button id="biogLeft" value="left" onclick="moveBiog(value)"><</button>
+                            <button id="biogRight" value="right" onclick="moveBiog(value)">></button>
+                            <p>Move Biography</p>
+                            <button id="biogUp" value="up" onclick="moveBiog(value)">/\</button>
+                            <button id="biogDown" value="bottom" onclick="moveBiog(value)">\/</button>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
 
+            <!--TEMPLATES-->
+            <div id="templates"class="pops">
+                <div id="templatesHeadbar">Drag Menu</div>
+                <button id="templatesCloser" onclick="templatesCloser()">X</button>
 
-        
-
-        <!--MAIN MENU BAR-->
-        <div id="menu">
-            <div id="menuLoadOut">
-                <button id="writeForm" class="menuButtons" onclick="writePop()">Change Text</button>
-                <button id="colorForm" class="menuButtons" onclick="colorsPop()">Change Coloring</button>
-                <button id="marginForm" class="menuButtons" onclick="marginPop()">Change Margins</button>
+                <div id="templatesBody" style="overflow-y: scroll;">
+                    <div class="option">
+                        <div class="optname">Student</div>
+                        <>
+                        <button>
+                    </div>
+                </div>
             </div>
-            <button id="menuArrow" onclick="showMenu()">\/</button>
+            
+            
+
+            <!--MAIN MENU BAR-->
+            <div id="menu">
+                <div id="menuLoadOut">
+                    <button id="writeForm" class="menuButtons" onclick="writePop()">Change Text</button>
+                    <button id="colorForm" class="menuButtons" onclick="colorsPop()">Change Coloring</button>
+                    <button id="marginForm" class="menuButtons" onclick="marginPop()">Change Margins</button>
+                    <button id="templatesForm" class="menuButtons" onclick="templatesPop()">Templates</button>
+                </div>
+                <button id="menuArrow" onclick="showMenu()">\/</button>
+            </div>
         </div>
 
+        <script src="https://www.gstatic.com/firebasejs/10.10.0/firebase-app-compat.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/10.10.0/firebase-auth-compat.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/10.10.0/firebase-analytics-compat.js"></script>
+        <script src="/static/start.js"></script>
         <script src="/static/middle.js"></script>
     </body>
 </html>

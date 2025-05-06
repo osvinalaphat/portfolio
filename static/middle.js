@@ -1,27 +1,38 @@
-biog = document.getElementById("biog");
-user = document.getElementById("user");
+let portfolio = document.getElementById("portfolio");
+let signlogin = document.getElementById("signlogin");
 
-nameSub = document.getElementById("nameSub");
-biogSub = document.getElementById("biogSub");
-form1 = document.getElementById("form1");
-form2 = document.getElementById("form2");
-bgColor = document.getElementById("bgColor");
+let user = document.getElementById("user");
+let biog = document.getElementById("biog");
+let loggedIn = false;
+
+
+let nameSub = document.getElementById("nameSub");
+let biogSub = document.getElementById("biogSub");
+let nameMain = document.getElementById("nameMain");
+let biogMain = document.getElementById("biogMain");
+let bgColor = document.getElementById("bgColor");
 
 // pop-up menus
-write = document.getElementById("write");
+let write = document.getElementById("write");
     write.style.display="none";
-colors = document.getElementById("colors")
+let colors = document.getElementById("colors");
     colors.style.display="none";
-margin = document.getElementById("margin")
+let margin = document.getElementById("margin");
     margin.style.display="none";
+let templates = document.getElementById("templates");
+    templates.style.display="none";
     
+
 
 
 nameSub.onclick = function(){
     const myName = document.getElementById("nameText").value;
     fetch("/my-page", {
         method: "POST",
-        headers : {"Content-Type": "application/json"},
+        headers : {
+            "Content-Type": "application/json",
+            "Authorization": auth.currentUser.uid    // 👈 send UID here!
+        },
         body: JSON.stringify({title : myName})
     })
     .then(() => {document.getElementById("user").textContent = `${myName}'s Portfolio`});
@@ -31,7 +42,10 @@ biogSub.onclick = function(){
     const myBio = document.getElementById("bio").value;
     fetch("/my-page", {
         method:"POST",
-        headers: {"Content-Type":"application/json"},
+        headers: {
+            "Content-Type":"application/json",
+            "Authorization": auth.currentUser.uid    // 👈 send UID here!
+        },
         body: JSON.stringify({biog:myBio})
     })
     .then(() => {document.getElementById("biog").textContent = myBio});
@@ -76,95 +90,41 @@ function marginCloser(){
     margin.style.display = "none";
 }
 
-
-//Make the DIV element draggagle:
-dragElement(write);
-dragElement(colors);
-dragElement(margin);
-
-function dragElement(elmnt) {
-  var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
-  if (document.getElementById(elmnt.id+"headbar")) {
-    /* if present, the header is where you move the DIV from:*/
-    document.getElementById(elmnt.id+"headbar").onmousedown = dragMouseDown;
-  } else {
-    /* otherwise, move the DIV from anywhere inside the DIV:*/
-    elmnt.onmousedown = dragMouseDown;
-  }
-
-  function dragMouseDown(e) {
-    e = e || window.event;
-    e.preventDefault();
-    // get the mouse cursor position at startup:
-    pos3 = e.clientX;
-    pos4 = e.clientY;
-    document.onmouseup = closeDragElement;
-    // call a function whenever the cursor moves:
-    document.onmousemove = elementDrag;
-  }
-
-  function elementDrag(e) {
-    e = e || window.event;
-    e.preventDefault();
-    // calculate the new cursor position:
-    pos1 = pos3 - e.clientX;
-    pos2 = pos4 - e.clientY;
-    pos3 = e.clientX;
-    pos4 = e.clientY;
-    // set the element's new position:
-    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
-    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
-  }
-
-  function closeDragElement() {
-    /* stop moving when mouse button is released:*/
-    document.onmouseup = null;
-    document.onmousemove = null;
-  }
-}
-
-
-/* MOVES TO FRONT */
-write.addEventListener('mousedown', (ev) => {
-    write.style.zIndex = 3;
-    colors.style.zIndex = 2;
-    margin.style.zIndex = 2;
-})
-colors.addEventListener('mousedown', (ev) => {
-    colors.style.zIndex = 3;
-    write.style.zIndex = 2;
-    margin.style.zIndex = 2;
-})
-margin.addEventListener('mousedown', (ev) => {
-    colors.style.zIndex = 2;
-    write.style.zIndex = 2;
-    margin.style.zIndex = 3;
-})
+//Make the DIV elements draggable:
 
 /* CHANGE COLOR BUTTON */
 function changeColor(color){
     fetch("/my-page", {
         method:"POST",
-        headers: {"Content-Type":"application/json"},
+        headers: {
+            "Content-Type":"application/json",
+            "Authorization": auth.currentUser.uid    // 👈 send UID here!
+        },
         body: JSON.stringify({background_color:color})
     })
     .then(() => {document.body.style.backgroundColor = color});
 }
-function changeNameColor(textColor){
+function changeNameColor(nameColor){
     fetch("/my-page", {
         method:"POST",
-        headers: {"Content-Type":"application/json"},
-        body: JSON.stringify({title_color:textColor})
+        headers: {
+            "Content-Type":"application/json",
+            "Authorization": auth.currentUser.uid    // 👈 send UID here!
+        },
+        body: JSON.stringify({name_color:nameColor})
     })
-    .then(() => {window.user.style.color = textColor});
+    .then(() => {user.style.color = nameColor});
 }
-function changeBiogColor(textColor){
+function changeBiogColor(biogColor){
     fetch("/my-page", {
         method:"POST",
-        headers: {"Content-Type":"application/json"},
-        body: JSON.stringify({biog_color:textColor})
+        headers: {
+            "Content-Type":"application/json",
+            "Authorization": auth.currentUser.uid    // 👈 send UID here!
+        },
+        body: JSON.stringify({biog_color:biogColor})
     })
-    .then(() => {window.biog.style.color = textColor});
+    .then(() => {biog.style.color = biogColor});
 }
 /***************** ***************/
 /***************** ***************/
@@ -248,16 +208,85 @@ function moveBiog(direction){
     }
 }
 
-window.onload = async () => {
-    const res = await fetch("/my-page");
-    const data = await res.json();
 
-    document.getElementById("user").textContent = `${data['title']}'s Portfolio`;
-    document.getElementById("biog").textContent = data["biog"];
-    document.body.style.backgroundColor = data["background_color"];
-    window.user.style.color = data["title_color"];
-    window.biog.style.color = data["biog_color"];
-    
+dragElement(write);
+dragElement(colors);
+dragElement(margin);
+dragElement(templates);
+
+function dragElement(elmnt) {
+var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+if (document.getElementById(elmnt.id+"headbar")) {
+    /* if present, the header is where you move the DIV from:*/
+    document.getElementById(elmnt.id+"headbar").onmousedown = dragMouseDown;
+} else {
+    /* otherwise, move the DIV from anywhere inside the DIV:*/
+    elmnt.onmousedown = dragMouseDown;
+}
+
+function dragMouseDown(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // get the mouse cursor position at startup:
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    document.onmouseup = closeDragElement;
+    // call a function whenever the cursor moves:
+    document.onmousemove = elementDrag;
+}
+
+function elementDrag(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // calculate the new cursor position:
+    pos1 = pos3 - e.clientX;
+    pos2 = pos4 - e.clientY;
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    // set the element's new position:
+    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+}
+
+function closeDragElement() {
+    /* stop moving when mouse button is released:*/
+    document.onmouseup = null;
+    document.onmousemove = null;
+}
+}
 
 
+/* MOVES TO FRONT */
+write.addEventListener('mousedown', (ev) => {
+    write.style.zIndex = 3;
+    colors.style.zIndex = 2;
+    margin.style.zIndex = 2;
+    templates.style.zIndex = 2;
+})
+colors.addEventListener('mousedown', (ev) => {
+    colors.style.zIndex = 3;
+    write.style.zIndex = 2;
+    margin.style.zIndex = 2;
+    templates.style.zIndex = 2;
+})
+margin.addEventListener('mousedown', (ev) => {
+    colors.style.zIndex = 2;
+    write.style.zIndex = 2;
+    margin.style.zIndex = 3;
+    templates.style.zIndex = 2;
+})
+templates.addEventListener('mousedown', (ev) => {
+    colors.style.zIndex = 2;
+    write.style.zIndex = 2;
+    margin.style.zIndex = 2;
+    templates.style.zIndex = 3;
+})
+
+
+function templatesPop(){
+    templates.style.display = "block";
+}
+
+function templatesCloser(){
+    templates.style.display = "none";
 }
