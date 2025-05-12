@@ -87,12 +87,11 @@ async def get_data(request: Request, db: Session = Depends(get_db)):
     user = db.query(Portfolio).filter(Portfolio.uid == uid).first()
 
     if user:
-        print("Returning name_color:", user.name_color)
         return {
             "title": f"{user.title}",
             "biog": user.biog,
             "background_color": user.background_color,
-            "name_color": user.name_color or "white",
+            "name_color": user.name_color,
             "biog_color": user.biog_color,
         }
     else:

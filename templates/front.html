@@ -10,25 +10,52 @@
                 <label><b>Sign Up</b></label>
                 <br>
                 <label>Username</label>
-                <input id="signup-email">
+                <input id="signup-email" type="email">
                 <label>Password</label>
-                <input id="signup-password">
+                <input id="signup-password" type="password">
                 <button onclick="signup()">SIGN UP</button>
             </div>
             <div id="loginBox">
                 <label><b>Login</b></label>
                 <br>
                 <label>Username:</label>
-                <input id="login-email">
+                <input id="login-email" type="email">
                 <label>Password:</label>
-                <input id="login-password">
+                <input id="login-password" type="password">
                 <button onclick="login()">LOGIN</button>
             </div>
         </div>
-        <div id="portfolio" style="display:none;">
-            <h1 id="user">Portfolio Title</h1>
-            <p id="biog" style="white-space: pre-wrap;"></p>
 
+        
+        <div id="portfolio" style="display:none;">
+
+
+
+            <folder>
+                <h1 id="user">Portfolio Title</h1>
+                <p id="biog" style="white-space: pre-wrap;"></p>
+
+                <div id="box1" class="boxes">
+                    <p id="box1Text" class="boxTexts">Box 1</p>
+                </div>
+                <div id="box2" class="boxes">
+                    <p id="box2Text" class="boxTexts"> Box 2</p>
+                </div>
+                <div id="box3" class="boxes">
+                    <p id="box3Text" class="boxTexts">Box 3</p>
+                </div>
+                <div id="box4" class="boxes">
+                    <p id="box4Text" class="boxTexts"> Box 4</p>
+                </div>
+                <div id="box5" class="boxes">
+                    <p id="box5Text" class="boxTexts"> Box 5</p>
+                </div>
+                <div id="box6" class="boxes">
+                    <p id="box6Text" class="boxTexts">Box 6</p>
+                </div>                         
+            </folder>
+            
+            
             
             <!-- Change text options-->
             <div id="write" class="pops">
@@ -50,7 +77,14 @@
                         <textarea id="bio" placeholder="Biography Here" rows="8" cols="20"></textarea><br>
                         <button id="biogSub">Change Biography</button>
                     </div>
+
+                    <div id="chosebox1">
+                        <label></label>
+                        <input type="text" id="namebox1" placeholder="Name Here" />
+                    </div>
+                    <button id="submitBoxes">Submit Boxes</button>
                 </div>
+
 
 
             </div>
@@ -71,6 +105,8 @@
                             <option value="#aaeeaa">Green</option>
                             <option value="#5555dd">Blue</option>
                             <option value="#aa22dd">Purple</option>
+                            <option value="black">Black</option>
+                            <option value="white">White</option>
                         </select>
                     </div>
 
@@ -85,6 +121,8 @@
                             <option value="#aaeeaa">Green</option>
                             <option value="#5555dd">Blue</option>
                             <option value="#aa22dd">Purple</option>
+                            <option value="black">Black</option>
+                            <option value="white">White</option>
                         </select>
                         <br>
                         </div>
@@ -100,8 +138,89 @@
                             <option value="#aaeeaa">Green</option>
                             <option value="#5555dd">Blue</option>
                             <option value="#aa22dd">Purple</option>
+                            <option value="black">Black</option>
+                            <option value="white">White</option>
                         </select>
                         <br>
+                    </div>
+                    <div>
+                        <label>Box1</label>
+                        <select onchange="changeBox1Color(value)">
+                            <option></option>
+                            <option value="#dd5555">Red</option>
+                            <option value="#dd7733">Orange</option>
+                            <option value="#ffee45">Yellow</option>
+                            <option value="#aaeeaa">Green</option>
+                            <option value="#5555dd">Blue</option>
+                            <option value="#aa22dd">Purple</option>
+                            <option value="black">Black</option>
+                            <option value="white">White</option>
+                        </select>
+                        <br>
+                        <label>Box2</label>
+                        <select onchange="changeBox2Color(value)">
+                            <option></option>
+                            <option value="#dd5555">Red</option>
+                            <option value="#dd7733">Orange</option>
+                            <option value="#ffee45">Yellow</option>
+                            <option value="#aaeeaa">Green</option>
+                            <option value="#5555dd">Blue</option>
+                            <option value="#aa22dd">Purple</option>
+                            <option value="black">Black</option>
+                            <option value="white">White</option>
+                        </select>
+                        <br>
+                        <label>Box3</label>
+                        <select onchange="changeBox3Color(value)">
+                            <option></option>
+                            <option value="#dd5555">Red</option>
+                            <option value="#dd7733">Orange</option>
+                            <option value="#ffee45">Yellow</option>
+                            <option value="#aaeeaa">Green</option>
+                            <option value="#5555dd">Blue</option>
+                            <option value="#aa22dd">Purple</option>
+                            <option value="black">Black</option>
+                            <option value="white">White</option>
+                        </select>
+                        <br>
+                        <label>Box4</label>
+                        <select onchange="changeBox4Color(value)">
+                            <option></option>
+                            <option value="#dd5555">Red</option>
+                            <option value="#dd7733">Orange</option>
+                            <option value="#ffee45">Yellow</option>
+                            <option value="#aaeeaa">Green</option>
+                            <option value="#5555dd">Blue</option>
+                            <option value="#aa22dd">Purple</option>
+                            <option value="black">Black</option>
+                            <option value="white">White</option>
+                        </select>
+                        <br>
+                        <label>Box5</label>
+                        <select onchange="changeBox5Color(value)">
+                            <option></option>
+                            <option value="#dd5555">Red</option>
+                            <option value="#dd7733">Orange</option>
+                            <option value="#ffee45">Yellow</option>
+                            <option value="#aaeeaa">Green</option>
+                            <option value="#5555dd">Blue</option>
+                            <option value="#aa22dd">Purple</option>
+                            <option value="black">Black</option>
+                            <option value="white">White</option>
+                        </select>
+                        <br>
+                        <label>Box6</label>
+                        <select onchange="changeBox6Color(value)">
+                            <option></option>
+                            <option value="#dd5555">Red</option>
+                            <option value="#dd7733">Orange</option>
+                            <option value="#ffee45">Yellow</option>
+                            <option value="#aaeeaa">Green</option>
+                            <option value="#5555dd">Blue</option>
+                            <option value="#aa22dd">Purple</option>
+                            <option value="black">Black</option>
+                            <option value="white">White</option>
+                        </select>
                     </div>
                 </div>
             </div>
@@ -136,13 +255,92 @@
             <div id="templates"class="pops">
                 <div id="templatesHeadbar">Drag Menu</div>
                 <button id="templatesCloser" onclick="templatesCloser()">X</button>
+    
 
-                <div id="templatesBody" style="overflow-y: scroll;">
-                    <div class="option">
-                        <div class="optname">Student</div>
-                        <>
-                        <button>
-                    </div>
+                <div id="templatesBody">
+                        <p>Centre</p>
+                        <button onclick="centre()">Choose</button><br><br>
+                        <!-- ideas: GPA, sports, service hours, projects, clubs -->
+                        <label>Change Templates</label><br>
+                        <button value="1" onclick="templatesChange(this.value)">
+                                ____ . . . ____<br>
+                                |___|___|___|<br>
+                                |___|___|___|
+                        </button>
+
+                        <button value="2" onclick="templatesChange(this.value)">
+                                ____________<br>
+                                |......|___|___|<br>
+                                |......|___|___|<br>
+                                |___|___|___|
+                        </button>
+
+                        <button value="3" onclick="templatesChange(this.value)">
+                                ____ . . . ____<br>
+                                |___________|<br>
+                                |___|___|___|<br>
+                                |___|___|___|
+                        </button>
+
+                        <br>
+                        <label>Box 1 category</label>
+                        <select id="box1Text" onchange="changeBox1Name(this.value)">
+                            <option>default</option>
+                            <option value="GPA">gpa</option>
+                            <option value="serviceHours">service hours</option>
+                            <option value="Projects">projects</option>
+                            <option value="Clubs">clubs</option>
+                            <option value="Sports">sports</option>
+                        </select>
+                        <br>
+                        <label>Box 2 category</label>
+                        <select id="box2Text" onchange="changeBox2Name(this.value)" >
+                            <option>default</option>
+                            <option value="GPA">gpa</option>
+                            <option value="serviceHours">service hours</option>
+                            <option value="Projects">projects</option>
+                            <option value="Clubs">clubs</option>
+                            <option value="Sports">sports</option>
+                        </select>
+                        <br>
+                        <label>Box 3 category</label>
+                        <select id="box3Text" onchange="changeBox3Name(this.value)">
+                            <option>default</option>
+                            <option value="GPA">gpa</option>
+                            <option value="serviceHours">service hours</option>
+                            <option value="Projects">projects</option>
+                            <option value="Clubs">clubs</option>
+                            <option value="Sports">sports</option>
+                        </select>
+                        <br>
+                        <label>Box 4 category</label>
+                        <select id="box4Text" onchange="changeBox4Name(this.value)">
+                            <option>default</option>
+                            <option value="GPA">gpa</option>
+                            <option value="serviceHours">service hours</option>
+                            <option value="Projects">projects</option>
+                            <option value="Clubs">clubs</option>
+                            <option value="Sports">sports</option>
+                        </select>
+                        <br>
+                        <label>Box 5 category</label>
+                        <select id="box5Text" onchange="changeBox5Name(this.value)">
+                            <option>default</option>
+                            <option value="GPA">gpa</option>
+                            <option value="serviceHours">service hours</option>
+                            <option value="Projects">projects</option>
+                            <option value="Clubs">clubs</option>
+                            <option value="Sports">sports</option>
+                        </select><br>
+                        <label>Box 6 category</label>
+                        <select id="box6Text" onchange="changeBox6Name(this.value)" >
+                            <option>default</option>
+                            <option value="GPA">gpa</option>
+                            <option value="serviceHours">service hours</option>
+                            <option value="Projects">projects</option>
+                            <option value="Clubs">clubs</option>
+                            <option value="Sports">sports</option>
+                        </select>
                 </div>
             </div>
             
