@@ -283,67 +283,78 @@
                         </button>
 
                         <br>
-                        <label>Box 1 category</label>
-                        <select id="box1Text" onchange="changeBox1Name(this.value)">
-                            <option>default</option>
-                            <option value="GPA">gpa</option>
-                            <option value="serviceHours">service hours</option>
-                            <option value="Projects">projects</option>
-                            <option value="Clubs">clubs</option>
-                            <option value="Sports">sports</option>
-                        </select>
-                        <br>
-                        <label>Box 2 category</label>
-                        <select id="box2Text" onchange="changeBox2Name(this.value)" >
-                            <option>default</option>
-                            <option value="GPA">gpa</option>
-                            <option value="serviceHours">service hours</option>
-                            <option value="Projects">projects</option>
-                            <option value="Clubs">clubs</option>
-                            <option value="Sports">sports</option>
-                        </select>
-                        <br>
-                        <label>Box 3 category</label>
-                        <select id="box3Text" onchange="changeBox3Name(this.value)">
-                            <option>default</option>
-                            <option value="GPA">gpa</option>
-                            <option value="serviceHours">service hours</option>
-                            <option value="Projects">projects</option>
-                            <option value="Clubs">clubs</option>
-                            <option value="Sports">sports</option>
-                        </select>
-                        <br>
-                        <label>Box 4 category</label>
-                        <select id="box4Text" onchange="changeBox4Name(this.value)">
-                            <option>default</option>
-                            <option value="GPA">gpa</option>
-                            <option value="serviceHours">service hours</option>
-                            <option value="Projects">projects</option>
-                            <option value="Clubs">clubs</option>
-                            <option value="Sports">sports</option>
-                        </select>
-                        <br>
-                        <label>Box 5 category</label>
-                        <select id="box5Text" onchange="changeBox5Name(this.value)">
-                            <option>default</option>
-                            <option value="GPA">gpa</option>
-                            <option value="serviceHours">service hours</option>
-                            <option value="Projects">projects</option>
-                            <option value="Clubs">clubs</option>
-                            <option value="Sports">sports</option>
-                        </select><br>
-                        <label>Box 6 category</label>
-                        <select id="box6Text" onchange="changeBox6Name(this.value)" >
-                            <option>default</option>
-                            <option value="GPA">gpa</option>
-                            <option value="serviceHours">service hours</option>
-                            <option value="Projects">projects</option>
-                            <option value="Clubs">clubs</option>
-                            <option value="Sports">sports</option>
-                        </select>
                 </div>
             </div>
             
+            <div id="boxInfo" class="pops">
+                <div id="boxInfoHeadbar">Drag Menu
+                    <button id="boxInfoCloser" onclick="boxInfoCloser()">X</button>
+                </div>
+                <div id="boxInfoLeft">
+                    <label>Box 1 category</label>
+                    <select id="box1Text" onchange="changeBox1Name(this.value)">
+                        <option>default</option>
+                        <option value="GPA">gpa</option>
+                        <option value="serviceHours">service hours</option>
+                        <option value="Projects">projects</option>
+                        <option value="Clubs">clubs</option>
+                        <option value="Sports">sports</option>
+                    </select>
+                    <br>
+                    <label>Box 2 category</label>
+                    <select id="box2Text" onchange="changeBox2Name(this.value)" >
+                        <option>default</option>
+                        <option value="GPA">gpa</option>
+                        <option value="serviceHours">service hours</option>
+                        <option value="Projects">projects</option>
+                        <option value="Clubs">clubs</option>
+                        <option value="Sports">sports</option>
+                    </select>
+                    <br>
+                    <label>Box 3 category</label>
+                    <select id="box3Text" onchange="changeBox3Name(this.value)">
+                        <option>default</option>
+                        <option value="GPA">gpa</option>
+                        <option value="serviceHours">service hours</option>
+                        <option value="Projects">projects</option>
+                        <option value="Clubs">clubs</option>
+                        <option value="Sports">sports</option>
+                    </select>
+                    <br>
+                    <label>Box 4 category</label>
+                    <select id="box4Text" onchange="changeBox4Name(this.value)">
+                        <option>default</option>
+                        <option value="GPA">gpa</option>
+                        <option value="serviceHours">service hours</option>
+                        <option value="Projects">projects</option>
+                        <option value="Clubs">clubs</option>
+                        <option value="Sports">sports</option>
+                    </select>
+                    <br>
+                    <label>Box 5 category</label>
+                    <select id="box5Text" onchange="changeBox5Name(this.value)">
+                        <option>default</option>
+                        <option value="GPA">gpa</option>
+                        <option value="serviceHours">service hours</option>
+                        <option value="Projects">projects</option>
+                        <option value="Clubs">clubs</option>
+                        <option value="Sports">sports</option>
+                    </select><br>
+                    <label>Box 6 category</label>
+                    <select id="box6Text" onchange="changeBox6Name(this.value)" >
+                        <option>default</option>
+                        <option value="GPA">gpa</option>
+                        <option value="serviceHours">service hours</option>
+                        <option value="Projects">projects</option>
+                        <option value="Clubs">clubs</option>
+                        <option value="Sports">sports</option>
+                    </select>
+                </div>
+                <div id="boxInfoLeft">
+                    
+                </div>
+
+            </div>
             
 
             <!--MAIN MENU BAR-->
@@ -353,6 +364,7 @@
                     <button id="colorForm" class="menuButtons" onclick="colorsPop()">Change Coloring</button>
                     <button id="marginForm" class="menuButtons" onclick="marginPop()">Change Margins</button>
                     <button id="templatesForm" class="menuButtons" onclick="templatesPop()">Templates</button>
+                    <button id="boxInfoForm" class="menuButtons" onclick="boxInfoPop()">Box Info</button>
                 </div>
                 <button id="menuArrow" onclick="showMenu()">\/</button>
             </div>
