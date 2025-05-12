@@ -21,6 +21,8 @@ let margin = document.getElementById("margin");
     margin.style.display="none";
 let templates = document.getElementById("templates");
     templates.style.display="none";
+let boxInfo = document.getElementById("boxInfo");
+    boxInfo.style.display="none"
     
 box1 = document.getElementById("box1");
     box1Text = document.getElementById("box1Text");
@@ -35,6 +37,7 @@ box5 = document.getElementById("box5");
 box6 = document.getElementById("box6");
     box6Text = document.getElementById("box6Text");
 
+let inClub = false;
 
 nameSub.onclick = function(){
     const myName = document.getElementById("nameText").value;
@@ -89,8 +92,16 @@ function colorsPop(){
 function marginPop(){
     margin.style.display = "block";
 }
+function templatesPop(){
+    templates.style.display = "block";
+}
+function boxInfoPop(){
+    boxInfo.style.display = "block";
+}
 
-
+function templatesCloser(){
+    templates.style.display = "none";
+}
 function nameCloser(){
     write.style.display= "none";
 }
@@ -99,6 +110,9 @@ function colorCloser(){
 }
 function marginCloser(){
     margin.style.display = "none";
+}
+function boxInfoCloser(){
+    boxInfo.style.display = "none";
 }
 
 //Make the DIV elements draggable:
@@ -224,6 +238,7 @@ dragElement(write);
 dragElement(colors);
 dragElement(margin);
 dragElement(templates);
+dragElement(boxInfo);
 
 function dragElement(elmnt) {
 var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
@@ -277,34 +292,39 @@ write.addEventListener('mousedown', (ev) => {
     colors.style.zIndex = 2;
     margin.style.zIndex = 2;
     templates.style.zIndex = 2;
+    boxInfo.style.zIndex = 2;
 })
 colors.addEventListener('mousedown', (ev) => {
     colors.style.zIndex = 3;
     write.style.zIndex = 2;
     margin.style.zIndex = 2;
     templates.style.zIndex = 2;
+    boxInfo.style.zIndex = 2;
 })
 margin.addEventListener('mousedown', (ev) => {
     colors.style.zIndex = 2;
     write.style.zIndex = 2;
     margin.style.zIndex = 3;
     templates.style.zIndex = 2;
+    boxInfo.style.zIndex = 2;
 })
 templates.addEventListener('mousedown', (ev) => {
     colors.style.zIndex = 2;
     write.style.zIndex = 2;
     margin.style.zIndex = 2;
     templates.style.zIndex = 3;
+    boxInfo.style.zIndex = 2;
+})
+boxInfo.addEventListener('mousedown', (ev) => {
+    colors.style.zIndex = 2;
+    write.style.zIndex = 2;
+    margin.style.zIndex = 2;
+    templates.style.zIndex = 2;
+    boxInfo.style.zIndex = 3;
 })
 
 
-function templatesPop(){
-    templates.style.display = "block";
-}
 
-function templatesCloser(){
-    templates.style.display = "none";
-}
 
 function centre(){
     console.log("it works");
@@ -473,3 +493,4 @@ function changeBox6Color(value){
     box6.style.borderColor = value;
     box6Text.style.color = value;
 }
+
