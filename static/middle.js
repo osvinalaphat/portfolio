@@ -37,7 +37,6 @@ box5 = document.getElementById("box5");
 box6 = document.getElementById("box6");
     box6Text = document.getElementById("box6Text");
 
-let inClub = false;
 
 nameSub.onclick = function(){
     const myName = document.getElementById("nameText").value;
@@ -333,164 +332,314 @@ function centre(){
   }
 
 function changeBox1Name(value){
+    fetch("/my-page", {
+        method:"POST",
+        headers: {
+            "Content-Type":"application/json",
+            "Authorization": auth.currentUser.uid    // 👈 send UID here!
+        },
+        body: JSON.stringify({Box1Text:value})
+    })
+    .then(() => {
+    if(value=="serviceHours")
+        value = "Service Hours";
     box1Text.textContent = value;
-    if(value=="serviceHours")
-        box1Text.textContent = "Service Hours";
+    });
 }
+    
 function changeBox2Name(value){
-    box2Text.textContent = value;
+    fetch("/my-page", {
+        method:"POST",
+        headers: {
+            "Content-Type":"application/json",
+            "Authorization": auth.currentUser.uid    // 👈 send UID here!
+        },
+        body: JSON.stringify({Box2Text:value})
+    })
+    .then(() => {
     if(value=="serviceHours")
-        box2Text.textContent = "Service Hours";
+        value = "Service Hours";
+    box2Text.textContent = value;
+    });
 }
 function changeBox3Name(value){
-    box3Text.textContent = value;
+    fetch("/my-page", {
+        method:"POST",
+        headers: {
+            "Content-Type":"application/json",
+            "Authorization": auth.currentUser.uid    // 👈 send UID here!
+        },
+        body: JSON.stringify({box3Text:value})
+    })
+    .then(() => {
     if(value=="serviceHours")
-        box3Text.textContent = "Service Hours";
+        value = "Service Hours";
+    box3Text.textContent = value;
+    });
 }
 function changeBox4Name(value){
-    box4Text.textContent = value;
+    fetch("/my-page", {
+        method:"POST",
+        headers: {
+            "Content-Type":"application/json",
+            "Authorization": auth.currentUser.uid    // 👈 send UID here!
+        },
+        body: JSON.stringify({Box4Text:value})
+    })
+    .then(() => {
     if(value=="serviceHours")
-        box4Text.textContent = "Service Hours";
+        value = "Service Hours";
+    box4Text.textContent = value;
+    });
 }
 function changeBox5Name(value){
-    box5Text.textContent = value;
-    if(value=="serviceHours")
-        box5Text.textContent = "Service Hours";
+    fetch("/my-page", {
+        method:"POST",
+        headers: {
+            "Content-Type":"application/json",
+            "Authorization": auth.currentUser.uid    // 👈 send UID here!
+        },
+        body: JSON.stringify({Box5Text:value})
+    })
+    .then(() => {
+        if(value=="serviceHours")
+            value = "Service Hours";
+        box5Text.textContent = value;
+    });
 }
 function changeBox6Name(value){
-    box6Text.textContent = value;
-    if(value=="serviceHours")
-        box6Text.textContent = "Service Hours";
+    fetch("/my-page", {
+        method:"POST",
+        headers: {
+            "Content-Type":"application/json",
+            "Authorization": auth.currentUser.uid    // 👈 send UID here!
+        },
+        body: JSON.stringify({Box6Text:value})
+    })
+    .then(() => {
+        if(value=="serviceHours")
+            value = "Service Hours";
+        box6Text.textContent = value;
+    });
 }
 
 function templatesChange(value){
     if(value =="1"){
-        user.style.left = "40%";
-        biog.style.left = "45%";
+        fetch("/my-page", {
+            method:"POST",
+            headers: {
+                "Content-Type":"application/json",
+                "Authorization": auth.currentUser.uid    // 👈 send UID here!
+            },
+            body: JSON.stringify({template:value})
+        })
+        .then(() => {
+            user.style.left = "40%";
+            biog.style.left = "45%";
 
-        box1.style.width = "30%";
-        box1.style.height = "49%";
-        box1.style.left = "0%";
-        box1.style.bottom = "51%";
+            box1.style.width = "30%";
+            box1.style.height = "49%";
+            box1.style.left = "0%";
+            box1.style.bottom = "51%";
 
-        box2.style.width = "30%";
-        box2.style.height = "50.5%";
-        box2.style.left = "70%";
-        box2.style.bottom = "0%";
+            box2.style.width = "30%";
+            box2.style.height = "50.5%";
+            box2.style.left = "70%";
+            box2.style.bottom = "0%";
 
-        box3.style.width = "40%";
-        box3.style.height = "50.5%";
-        box3.style.left = "30%";
-        box3.style.bottom = "0%";
+            box3.style.width = "40%";
+            box3.style.height = "50.5%";
+            box3.style.left = "30%";
+            box3.style.bottom = "0%";
 
-        box4.style.width = "30%";
-        box4.style.height = "49%";
-        box4.style.left = "70%";
-        box4.style.bottom = "51%";
+            box4.style.width = "30%";
+            box4.style.height = "49%";
+            box4.style.left = "70%";
+            box4.style.bottom = "51%";
 
-        box5.style.width = "30%";
-        box5.style.height = "50.5%";
-        box5.style.left = "70%";
-        box5.style.bottom = "0%";
+            box5.style.width = "30%";
+            box5.style.height = "50.5%";
+            box5.style.left = "70%";
+            box5.style.bottom = "0%";
 
-        box6.style.width = "0%";
-        box6.style.height = "0%";
-        box5.style.left = "0%";
-        box5.style.bottom = "0%";
+            box6.style.width = "0%";
+            box6.style.height = "0%";
+            box5.style.left = "0%";
+            box5.style.bottom = "0%";
+        });
     }
     if(value =="2"){
-        user.style.left = "10%";
-        biog.style.left = "15%";
+        fetch("/my-page", {
+            method:"POST",
+            headers: {
+                "Content-Type":"application/json",
+                "Authorization": auth.currentUser.uid    // 👈 send UID here!
+            },
+            body: JSON.stringify({template:value})
+        })
+        .then(() => {
+            user.style.left = "10%";
+            biog.style.left = "15%";
 
-        box1.style.width = "30%";
-        box1.style.height = "33%";
-        box1.style.left = "40%";
-        box1.style.bottom = "67%";
+            box1.style.width = "30%";
+            box1.style.height = "33%";
+            box1.style.left = "40%";
+            box1.style.bottom = "67%";
 
-        box2.style.width = "30%";
-        box2.style.height = "33%";
-        box2.style.left = "70%";
-        box2.style.bottom = "67%";
+            box2.style.width = "30%";
+            box2.style.height = "33%";
+            box2.style.left = "70%";
+            box2.style.bottom = "67%";
 
-        box3.style.width = "30%";
-        box3.style.height = "33%";
-        box3.style.left = "40%";
-        box3.style.bottom = "33.5%";
+            box3.style.width = "30%";
+            box3.style.height = "33%";
+            box3.style.left = "40%";
+            box3.style.bottom = "33.5%";
 
-        box4.style.width = "30%";
-        box4.style.height = "33%";
-        box4.style.left = "70%";
-        box4.style.bottom = "33.5%";
+            box4.style.width = "30%";
+            box4.style.height = "33%";
+            box4.style.left = "70%";
+            box4.style.bottom = "33.5%";
 
-        box5.style.width = "30%";
-        box5.style.height = "33%";
-        box5.style.left = "40%";
-        box5.style.bottom = "0%";
+            box5.style.width = "30%";
+            box5.style.height = "33%";
+            box5.style.left = "40%";
+            box5.style.bottom = "0%";
 
-        box6.style.width = "30%";
-        box6.style.height = "33%";
-        box6.style.left = "70%";
-        box6.style.bottom = "0%";
+            box6.style.width = "30%";
+            box6.style.height = "33%";
+            box6.style.left = "70%";
+            box6.style.bottom = "0%";
+        });
         
     }
     if(value =="3"){
-        user.style.left = "40%";
-        biog.style.left = "45%";
+        fetch("/my-page", {
+            method:"POST",
+            headers: {
+                "Content-Type":"application/json",
+                "Authorization": auth.currentUser.uid    // 👈 send UID here!
+            },
+            body: JSON.stringify({template:value})
+        })
+        .then(() => {
+            user.style.left = "40%";
+            biog.style.left = "45%";
 
-        box1.style.width = "33%";
-        box1.style.height = "33%";
-        box1.style.left = "0%";
-        box1.style.bottom = "33%";
+            box1.style.width = "33%";
+            box1.style.height = "33%";
+            box1.style.left = "0%";
+            box1.style.bottom = "33%";
 
-        box2.style.width = "33%";
-        box2.style.height = "33%";
-        box2.style.left = "0%";
-        box2.style.bottom = "0%";
+            box2.style.width = "33%";
+            box2.style.height = "33%";
+            box2.style.left = "0%";
+            box2.style.bottom = "0%";
 
-        box3.style.width = "34%";
-        box3.style.height = "33%";
-        box3.style.left = "33%";
-        box3.style.bottom = "33%";
+            box3.style.width = "34%";
+            box3.style.height = "33%";
+            box3.style.left = "33%";
+            box3.style.bottom = "33%";
 
-        box4.style.width = "34%";
-        box4.style.height = "33%";
-        box4.style.left = "33%";
-        box4.style.bottom = "0%";
+            box4.style.width = "34%";
+            box4.style.height = "33%";
+            box4.style.left = "33%";
+            box4.style.bottom = "0%";
 
-        box5.style.width = "33%";
-        box5.style.height = "33%";
-        box5.style.left = "67%";
-        box5.style.bottom = "33%";
+            box5.style.width = "33%";
+            box5.style.height = "33%";
+            box5.style.left = "67%";
+            box5.style.bottom = "33%";
 
-        box6.style.width = "33%";
-        box6.style.height = "33%";
-        box6.style.left = "67%";
-        box6.style.bottom = "0%";
+            box6.style.width = "33%";
+            box6.style.height = "33%";
+            box6.style.left = "67%";
+            box6.style.bottom = "0%";
+        });
     }
 }
 
 function changeBox1Color(value){
-    box1.style.borderColor = value;
-    box1Text.style.color = value;
-}
+    fetch("/my-page", {
+        method:"POST",
+        headers: {
+            "Content-Type":"application/json",
+            "Authorization": auth.currentUser.uid    // 👈 send UID here!
+        },
+        body: JSON.stringify({Box1Color:value})
+    })
+    .then(() => {
+        box1.style.borderColor = value;
+        box1Text.style.color = value;
+    });
+    }
 function changeBox2Color(value){
+    fetch("/my-page", {
+        method:"POST",
+        headers: {
+            "Content-Type":"application/json",
+            "Authorization": auth.currentUser.uid    // 👈 send UID here!
+        },
+        body: JSON.stringify({Box2Color:value})
+    })
+    .then(() => {
     box2.style.borderColor = value;
     box2Text.style.color = value;
+    });
 }
 function changeBox3Color(value){
+    fetch("/my-page", {
+        method:"POST",
+        headers: {
+            "Content-Type":"application/json",
+            "Authorization": auth.currentUser.uid    // 👈 send UID here!
+        },
+        body: JSON.stringify({Box3Color:value})
+    })
+    .then(() => {
     box3.style.borderColor = value;
     box3Text.style.color = value;
+    });
 }
 function changeBox4Color(value){
+    fetch("/my-page", {
+        method:"POST",
+        headers: {
+            "Content-Type":"application/json",
+            "Authorization": auth.currentUser.uid    // 👈 send UID here!
+        },
+        body: JSON.stringify({Box4Color:value})
+    })
+    .then(() => {
     box4.style.borderColor = value;
     box4Text.style.color = value;
+    });
 }
 function changeBox5Color(value){
+    fetch("/my-page", {
+        method:"POST",
+        headers: {
+            "Content-Type":"application/json",
+            "Authorization": auth.currentUser.uid    // 👈 send UID here!
+        },
+        body: JSON.stringify({Box5Color:value})
+    })
+    .then(() => {
     box5.style.borderColor = value;
     box5Text.style.color = value;
+    });
 }
 function changeBox6Color(value){
+    fetch("/my-page", {
+        method:"POST",
+        headers: {
+            "Content-Type":"application/json",
+            "Authorization": auth.currentUser.uid    // 👈 send UID here!
+        },
+        body: JSON.stringify({Box6Color:value})
+    })
+    .then(() => {
     box6.style.borderColor = value;
     box6Text.style.color = value;
+    });
 }
-
