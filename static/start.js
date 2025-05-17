@@ -62,7 +62,20 @@ async function loadMyPage() {
     document.body.style.backgroundColor = data.background_color;
     user.style.color = data.name_color;
     biog.style.color = data.biog_color;
+    template = data.template;
+    templatesChange(template);
+    changeBox1Name(data.Box1Text);
+    changeBox2Name(data.Box2Text);
+    changeBox3Name(data.Box3Text);
+    changeBox4Name(data.Box4Text);
+    changeBox5Name(data.Box5Text);
+    changeBox6Name(data.Box6Text);
+    changeBox1Color(data.Box1Color);
+    changeBox2Color(data.Box2Color);
+    changeBox3Color(data.Box3Color);
+    changeBox4Color(data.Box4Color);
+    changeBox5Color(data.Box5Color);
+    changeBox6Color(data.Box6Color);
     portfolio.style.display="block";
     signlogin.style.display="none";
 }
-
