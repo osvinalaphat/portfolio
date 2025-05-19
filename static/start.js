@@ -78,4 +78,5 @@ async function loadMyPage() {
     changeBox6Color(data.Box6Color);
     portfolio.style.display="block";
     signlogin.style.display="none";
+    
 }

@@ -53,6 +53,10 @@ class Portfolio(Base):
     Box4Text = Column(String)
     Box5Text = Column(String)
     Box6Text = Column(String)
+    #Club1 = Column(String)
+    #Club2 = Column(String)
+    #Club3 = Column(String)
+    #Club4 = Column(String)
     
 
 # Create the tables in the database
@@ -111,6 +115,11 @@ class UserValidate(BaseModel):
     Box4Text: Optional[str]=None
     Box5Text: Optional[str]=None
     Box6Text: Optional[str]=None
+    #Club1: Optional[str]=None
+    #Club2: Optional[str]=None
+    #Club3: Optional[str]=None
+    #Club4: Optional[str]=None
+
 
 
 @app.get("/")
@@ -158,6 +167,10 @@ async def get_data(request: Request, db: Session = Depends(get_db)):
             "Box4Text": user.Box4Text or "Box 4",
             "Box5Text": user.Box5Text or "Box 5",
             "Box6Text": user.Box6Text or "Box 6",
+            #"Club1":user.Club1,
+            #"Club2":user.Club2,
+            #"Club3":user.Club3,
+            #"Club4":user.Club4,
         }
     else:
         # If user does not exist, return default values
@@ -188,6 +201,10 @@ async def get_data(request: Request, db: Session = Depends(get_db)):
             "Box4Text": "Box4",
             "Box5Text": "Box5",
             "Box6Text": "Box6",
+            #"Club1":"",
+            #"Club2":"",
+            #"Club3":"",
+            #"Club4":"",
         }
 
 
@@ -260,6 +277,14 @@ async def change_data(user_post: UserValidate, request: Request, db: Session = D
         user.Box5Text = user_post.Box5Text
     if user_post.Box6Text is not None:
         user.Box6Text = user_post.Box6Text
+    #if user_post.Club1 is not None:
+    #   user.Club1 = user_post.Club1
+    #if user_post.Club2 is not None:
+    #   user.Club2 = user_post.Club2
+    #if user_post.Club3 is not None:
+    #   user.Club3 = user_post.Club3
+    #if user_post.Club4 is not None:
+    #   user.Club4 = user_post.Club4
     
     db.commit()  # Commit changes to the database
 
@@ -290,4 +315,8 @@ async def change_data(user_post: UserValidate, request: Request, db: Session = D
         "Box4Text": user.Box4Text,
         "Box5Text": user.Box5Text,
         "Box6Text": user.Box6Text,
+        #"Club1":user.Club1,
+        #"Club2":user.Club2,
+        #"Club3":user.Club3,
+        #"Club4":user.Club4,
     }

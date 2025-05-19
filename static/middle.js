@@ -37,6 +37,21 @@ box5 = document.getElementById("box5");
 box6 = document.getElementById("box6");
     box6Text = document.getElementById("box6Text");
 
+clubsPopUp = document.getElementById("clubsPopUp");
+    clubsPopUp.style.display = "none";
+clubsButton = document.getElementById("clubsButton");
+    clubsButton.style.display = "none";
+let clubboxIn;
+let clubNumber = 0;
+
+olBox1 = document.getElementById("olBox1");
+olBox2 = document.getElementById("olBox2");
+olBox3 = document.getElementById("olBox3");
+olBox4 = document.getElementById("olBox4");
+olBox5 = document.getElementById("olBox5");
+olBox6 = document.getElementById("olBox6");
+
+
 
 nameSub.onclick = function(){
     const myName = document.getElementById("nameText").value;
@@ -112,6 +127,9 @@ function marginCloser(){
 }
 function boxInfoCloser(){
     boxInfo.style.display = "none";
+}
+function clubsPopCloser(){
+    clubsPopUp.style.display = "none";
 }
 
 //Make the DIV elements draggable:
@@ -341,8 +359,19 @@ function changeBox1Name(value){
         body: JSON.stringify({Box1Text:value})
     })
     .then(() => {
-    if(value=="serviceHours")
-        value = "Service Hours";
+        if(value=="serviceHours")
+            value = "Service Hours";
+        if(value=="Clubs"){
+            box1.appendChild(clubsButton);
+            clubsButton.style.display = "block";
+            olBox1.style.display="block";
+        }
+        else{
+            if(clubsButton.parentElement == box1){
+                clubsButton.style.display = "none";
+                olBox1.style.display="none";
+            }
+        }
     box1Text.textContent = value;
     });
 }
@@ -357,8 +386,19 @@ function changeBox2Name(value){
         body: JSON.stringify({Box2Text:value})
     })
     .then(() => {
-    if(value=="serviceHours")
-        value = "Service Hours";
+        if(value=="serviceHours")
+            value = "Service Hours";
+        if(value=="Clubs"){
+            box2.appendChild(clubsButton);
+            clubsButton.style.display = "block";
+            olBox2.style.display="block";
+        }
+        else{
+            if(clubsButton.parentElement == box2){
+                clubsButton.style.display = "none";
+                olBox2.style.display="none";
+            }
+        }
     box2Text.textContent = value;
     });
 }
@@ -372,8 +412,19 @@ function changeBox3Name(value){
         body: JSON.stringify({box3Text:value})
     })
     .then(() => {
-    if(value=="serviceHours")
-        value = "Service Hours";
+        if(value=="serviceHours")
+            value = "Service Hours";
+        if(value=="Clubs"){
+            box3.appendChild(clubsButton);
+            clubsButton.style.display = "block";
+            olBox3.style.display="block";
+        }
+        else{
+            if(clubsButton.parentElement == box3){
+                clubsButton.style.display = "none";
+                olBox3.style.display="none";
+            }
+        }
     box3Text.textContent = value;
     });
 }
@@ -387,9 +438,21 @@ function changeBox4Name(value){
         body: JSON.stringify({Box4Text:value})
     })
     .then(() => {
-    if(value=="serviceHours")
-        value = "Service Hours";
-    box4Text.textContent = value;
+        if(value=="serviceHours")
+            value = "Service Hours";
+        if(value=="Clubs"){
+            box4.appendChild(clubsButton);
+            clubsButton.style.display = "block"; //JAWSIODJIAHDAO
+            olBox4.style.display="block";
+        }
+        else{
+            if(clubsButton.parentElement == box4){
+                clubsButton.style.display = "none";
+                olBox4.style.display="none";
+            }
+        }
+        //sdnfnlakdklfalkfsdaklf
+        box4Text.textContent = value;
     });
 }
 function changeBox5Name(value){
@@ -404,6 +467,17 @@ function changeBox5Name(value){
     .then(() => {
         if(value=="serviceHours")
             value = "Service Hours";
+        if(value=="Clubs"){
+            box5.appendChild(clubsButton);
+            clubsButton.style.display = "block";
+            olBox5.style.display="block";
+        }
+        else{
+            if(clubsButton.parentElement == box5){
+                clubsButton.style.display = "none";
+                olBox5.style.display="none";
+            }
+        }
         box5Text.textContent = value;
     });
 }
@@ -419,6 +493,18 @@ function changeBox6Name(value){
     .then(() => {
         if(value=="serviceHours")
             value = "Service Hours";
+        if(value=="Clubs"){
+            box6.appendChild(clubsButton);
+            clubsButton.style.display = "block";
+            olBox6.style.display="block";
+
+        }
+        else{
+            if(clubsButton.parentElement == box6){
+                clubsButton.style.display = "none";
+                olBox6.style.display="none";
+            }
+        }
         box6Text.textContent = value;
     });
 }
@@ -643,3 +729,25 @@ function changeBox6Color(value){
     box6Text.style.color = value;
     });
 }
+
+
+
+function clubsPop(){
+    clubsPopUp.style.display = "block";
+    clubsBoxIn = clubsButton.parentElement;
+    console.log(clubsBoxIn);
+}
+
+
+function clubsInfoAdd() {
+    const clubName = document.getElementById("clubName").value;
+    const clubRole = document.getElementById("clubRole").value;
+
+    clubNumber = clubNumber+1;
+    ol1 = clubsBoxIn.querySelector("ol");
+    li1 = document.createElement("li");
+    ol1.appendChild(li1);
+    clubStats = `${clubRole} of ${clubName}`;
+    li1.textContent = clubStats;
+}
+

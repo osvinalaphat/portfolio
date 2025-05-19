@@ -37,26 +37,55 @@
 
                 <div id="box1" class="boxes">
                     <p id="box1Text" class="boxTexts">Box 1</p>
+                    <ol id="olBox1"></ol>
+
                 </div>
                 <div id="box2" class="boxes">
                     <p id="box2Text" class="boxTexts"> Box 2</p>
+                    <ol id="olBox2"></ol>
+
                 </div>
                 <div id="box3" class="boxes">
                     <p id="box3Text" class="boxTexts">Box 3</p>
+                    <ol id="olBox3"></ol>
                 </div>
                 <div id="box4" class="boxes">
                     <p id="box4Text" class="boxTexts"> Box 4</p>
+                    <ol id="olBox4"></ol>
                 </div>
                 <div id="box5" class="boxes">
                     <p id="box5Text" class="boxTexts"> Box 5</p>
+                    <ol id="olBox5"></ol>
                 </div>
                 <div id="box6" class="boxes">
                     <p id="box6Text" class="boxTexts">Box 6</p>
+                    <ol id="olBox6"></ol>
                 </div>                         
             </folder>
             
             
             
+            <button id="clubsButton" onclick="clubsPop()">Enter club involvement:</button>
+
+            
+
+            <div id="clubsPopUp" class ="pops">
+                <button id="clubsCloser" onclick="clubsPopCloser()">X</button>
+                <label>What Club are you in:</label>
+                <input type="text" id="clubName"><br>
+                <label>What role did you have in that club:</label>
+                <select id="clubRole">
+                    <option id="Member">Member</option>
+                    <option id="Coleader">Coleader</option>
+                    <option value="Leader">Leader</option>
+                    <option value="Emailer">Emailer</option>
+                    <option value="Moderator">Moderator</option>
+                </select><br>
+                <button onclick="clubsInfoAdd(this)">Add to Portfolio</button>
+            </div>
+
+
+
             <!-- Change text options-->
             <div id="write" class="pops">
                 <button id="nameCloser" onclick="nameCloser()">X</button>
@@ -77,12 +106,6 @@
                         <textarea id="bio" placeholder="Biography Here" rows="8" cols="20"></textarea><br>
                         <button id="biogSub">Change Biography</button>
                     </div>
-
-                    <div id="chosebox1">
-                        <label></label>
-                        <input type="text" id="namebox1" placeholder="Name Here" />
-                    </div>
-                    <button id="submitBoxes">Submit Boxes</button>
                 </div>
 
 
