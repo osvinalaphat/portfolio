@@ -44,12 +44,8 @@ clubsButton = document.getElementById("clubsButton");
 let clubboxIn;
 let clubNumber = 0;
 
-olBox1 = document.getElementById("olBox1");
-olBox2 = document.getElementById("olBox2");
-olBox3 = document.getElementById("olBox3");
-olBox4 = document.getElementById("olBox4");
-olBox5 = document.getElementById("olBox5");
-olBox6 = document.getElementById("olBox6");
+olBox = document.getElementById("olBox");
+
 
 
 
@@ -363,13 +359,15 @@ function changeBox1Name(value){
             value = "Service Hours";
         if(value=="Clubs"){
             box1.appendChild(clubsButton);
+            box1.appendChild(olBox);
             clubsButton.style.display = "block";
-            olBox1.style.display="block";
+            olBox.style.display="block";
+            olBox.style.color = window.getComputedStyle(box1Text).color;
         }
         else{
             if(clubsButton.parentElement == box1){
                 clubsButton.style.display = "none";
-                olBox1.style.display="none";
+                olBox.style.display="none";
             }
         }
     box1Text.textContent = value;
@@ -390,13 +388,15 @@ function changeBox2Name(value){
             value = "Service Hours";
         if(value=="Clubs"){
             box2.appendChild(clubsButton);
+            box2.appendChild(olBox);
             clubsButton.style.display = "block";
-            olBox2.style.display="block";
+            olBox.style.display="block";
+            olBox.style.color = window.getComputedStyle(box2Text).color;
         }
         else{
             if(clubsButton.parentElement == box2){
                 clubsButton.style.display = "none";
-                olBox2.style.display="none";
+                olBox.style.display="none";
             }
         }
     box2Text.textContent = value;
@@ -409,20 +409,22 @@ function changeBox3Name(value){
             "Content-Type":"application/json",
             "Authorization": auth.currentUser.uid    // 👈 send UID here!
         },
-        body: JSON.stringify({box3Text:value})
+        body: JSON.stringify({Box3Text:value})
     })
     .then(() => {
         if(value=="serviceHours")
             value = "Service Hours";
         if(value=="Clubs"){
             box3.appendChild(clubsButton);
+            box3.appendChild(olBox);
             clubsButton.style.display = "block";
-            olBox3.style.display="block";
+            olBox.style.display="block";
+            olBox.style.color = window.getComputedStyle(box3Text).color;
         }
         else{
             if(clubsButton.parentElement == box3){
                 clubsButton.style.display = "none";
-                olBox3.style.display="none";
+                olBox.style.display="none";
             }
         }
     box3Text.textContent = value;
@@ -442,13 +444,15 @@ function changeBox4Name(value){
             value = "Service Hours";
         if(value=="Clubs"){
             box4.appendChild(clubsButton);
+            box4.appendChild(olBox);
             clubsButton.style.display = "block"; //JAWSIODJIAHDAO
-            olBox4.style.display="block";
+            olBox.style.display="block";
+            olBox.style.color = window.getComputedStyle(box4Text).color;
         }
         else{
             if(clubsButton.parentElement == box4){
                 clubsButton.style.display = "none";
-                olBox4.style.display="none";
+                olBox.style.display="none";
             }
         }
         //sdnfnlakdklfalkfsdaklf
@@ -469,13 +473,15 @@ function changeBox5Name(value){
             value = "Service Hours";
         if(value=="Clubs"){
             box5.appendChild(clubsButton);
+            box5.appendChild(olBox);
             clubsButton.style.display = "block";
-            olBox5.style.display="block";
+            olBox.style.display="block";
+            olBox.style.color = window.getComputedStyle(box5Text).color;
         }
         else{
             if(clubsButton.parentElement == box5){
                 clubsButton.style.display = "none";
-                olBox5.style.display="none";
+                olBox.style.display="none";
             }
         }
         box5Text.textContent = value;
@@ -495,14 +501,15 @@ function changeBox6Name(value){
             value = "Service Hours";
         if(value=="Clubs"){
             box6.appendChild(clubsButton);
+            box5.appendChild(olBox);
             clubsButton.style.display = "block";
-            olBox6.style.display="block";
-
+            olBox.style.display="block";
+            olBox.style.color = window.getComputedStyle(box6Text).color;
         }
         else{
             if(clubsButton.parentElement == box6){
                 clubsButton.style.display = "none";
-                olBox6.style.display="none";
+                olBox.style.display="none";
             }
         }
         box6Text.textContent = value;
@@ -657,6 +664,8 @@ function changeBox1Color(value){
     .then(() => {
         box1.style.borderColor = value;
         box1Text.style.color = value;
+        if(olBox.parentElement == box1)
+            olBox.style.color = value;
     });
     }
 function changeBox2Color(value){
@@ -669,8 +678,10 @@ function changeBox2Color(value){
         body: JSON.stringify({Box2Color:value})
     })
     .then(() => {
-    box2.style.borderColor = value;
-    box2Text.style.color = value;
+        box2.style.borderColor = value;
+        box2Text.style.color = value;
+        if(olBox.parentElement == box2)
+            olBox.style.color = value;
     });
 }
 function changeBox3Color(value){
@@ -683,8 +694,10 @@ function changeBox3Color(value){
         body: JSON.stringify({Box3Color:value})
     })
     .then(() => {
-    box3.style.borderColor = value;
-    box3Text.style.color = value;
+        box3.style.borderColor = value;
+        box3Text.style.color = value;
+        if(olBox.parentElement == box3)
+                olBox.style.color = value;
     });
 }
 function changeBox4Color(value){
@@ -697,8 +710,10 @@ function changeBox4Color(value){
         body: JSON.stringify({Box4Color:value})
     })
     .then(() => {
-    box4.style.borderColor = value;
-    box4Text.style.color = value;
+        box4.style.borderColor = value;
+        box4Text.style.color = value;
+        if(olBox.parentElement == box4)
+                olBox.style.color = value;
     });
 }
 function changeBox5Color(value){
@@ -711,8 +726,10 @@ function changeBox5Color(value){
         body: JSON.stringify({Box5Color:value})
     })
     .then(() => {
-    box5.style.borderColor = value;
-    box5Text.style.color = value;
+        box5.style.borderColor = value;
+        box5Text.style.color = value;
+        if(olBox.parentElement == box5)
+            olBox.style.color = value;
     });
 }
 function changeBox6Color(value){
@@ -725,8 +742,10 @@ function changeBox6Color(value){
         body: JSON.stringify({Box6Color:value})
     })
     .then(() => {
-    box6.style.borderColor = value;
-    box6Text.style.color = value;
+        box6.style.borderColor = value;
+        box6Text.style.color = value;
+        if(olBox.parentElement == box6)
+            olBox.style.color = value;
     });
 }
 
@@ -744,10 +763,9 @@ function clubsInfoAdd() {
     const clubRole = document.getElementById("clubRole").value;
 
     clubNumber = clubNumber+1;
-    ol1 = clubsBoxIn.querySelector("ol");
+    olBox = clubsBoxIn.querySelector("ol");
     li1 = document.createElement("li");
-    ol1.appendChild(li1);
+    olBox.appendChild(li1);
     clubStats = `${clubRole} of ${clubName}`;
     li1.textContent = clubStats;
 }
-
